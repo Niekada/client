@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import { loginFormInitialValues, loginValidationSchema } from "../../consts/InitialValues";
 import { TextField } from "formik-mui";
-import styled from "styled-components";
+import { FormContainer, Title, AddButton } from "../../styles/LoginRegisterStyles";
 import axios from "axios";
 import { MainColor, BgColor } from "../../consts/Colors";
 
@@ -23,8 +23,8 @@ const Login = () => {
 
   return (
     <div>
-      <SignInForm>
-        <SignIn>Log In</SignIn>
+      <FormContainer>
+        <Title>Log In</Title>
         <Formik
           initialValues={loginFormInitialValues}
           onSubmit={onSubmit}
@@ -49,48 +49,18 @@ const Login = () => {
                 fullWidth
                 required
               />
-              <LoginButton
+              <AddButton
                 type="submit"
                 disabled={isSubmitting}
               >
                 Log In
-              </LoginButton>
+              </AddButton>
             </Form>
           )}
         </Formik>
-      </SignInForm>
+      </FormContainer>
     </div>
   )
 };
-
-const SignInForm = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
-
-const SignIn = styled.p`
-  font-weight: 700;
-  font-size: 34px;
-  color: ${MainColor};
-`;
-
-const LoginButton = styled.button`
-  margin-top: 24px;
-  text-align: center;
-  width: 250px;
-  height: 50px;
-  border: 2px solid ${MainColor};
-  border-radius: 5px;
-  background-color: ${BgColor};
-  font-weight: 700;
-  font-size: 34px;
-  color: ${MainColor};
-
-  &:active {
-    transform: translateY(4px);
-  }
-`;
 
 export default Login;
