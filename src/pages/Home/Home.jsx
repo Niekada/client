@@ -1,9 +1,13 @@
-import React from 'react'
+import Questions from '../Quesions/Questions';
+import Answers from '../Answers/Answers';
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <>
+      <Questions />;
+      <Answers />
+    </>
+  );
+};
 
-export default Home
+export default Home;

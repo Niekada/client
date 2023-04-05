@@ -2,15 +2,14 @@ import { createContext } from "react";
 
 import { useLocalStorage } from "../hooks/localStorage";
 
-const UserContext = createContext<{
-  user, setUser, isLoggedIn, handleLogIn, handleLogOut,
-}>({
+const UserContext = createContext({
   user: null,
   setUser: () => {},
   isLoggedIn: false,
   handleLogIn: () => {},
   handleLogOut: () => {},
 });
+
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = useLocalStorage("user", null);

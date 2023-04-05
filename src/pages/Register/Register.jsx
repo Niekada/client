@@ -1,19 +1,19 @@
-import { Button } from "@mui/material";
 import { Field, Form, Formik } from "formik";
-import { loginFormInitialValues, loginValidationSchema } from "../../consts/LoginRegConst";
+import { loginFormInitialValues, loginValidationSchema } from "../../consts/InitialValues";
 import { TextField } from "formik-mui";
 import styled from "styled-components";
 import axios from "axios";
+import { MainColor, BgColor } from "../../consts/Colors";
 
 const Register = () => {
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     setSubmitting(true);
     try {
-      const register = axios.get(
+      const register = axios.post(
         "/register", values
         );
-      alert("you are now regostered");
+      alert("you are now registered");
       console.log(register)
       resetForm();
     } catch (error) {
@@ -37,7 +37,7 @@ const Register = () => {
                 component={TextField}
                 name="email"
                 label="Email Address"
-                sx={{ mb: 2 }}
+                sx={{ mb: 2, backgroundColor: BgColor, color: MainColor }}
                 fullWidth
                 required
               />
@@ -46,19 +46,16 @@ const Register = () => {
                 name="password"
                 type="password"
                 label="Password"
-                sx={{ mb: 2 }}
+                sx={{ mb: 2, backgroundColor: BgColor, color: MainColor }}
                 fullWidth
                 required
               />
-              <Button
+              <LoginButton
                 type="submit"
-                variant="contained"
                 disabled={isSubmitting}
-                sx={{ mb: 2 }}
-                fullWidth
               >
                 Register
-              </Button>
+              </LoginButton>
             </Form>
           )}
         </Formik>
@@ -68,18 +65,33 @@ const Register = () => {
 };
 
 const RegisterForm = styled.div`
-  margin: 20px auto,
-  width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  text-align: center;
 `;
 
 const RegisterTitle = styled.p`
-  margin-top: 100px;
-  font-size: 36px;
-  font-weight: 500;
+  font-weight: 700;
+  font-size: 34px;
+  color: ${MainColor};
+`;
+
+const LoginButton = styled.button`
+  margin-top: 24px;
+  text-align: center;
+  width: 250px;
+  height: 50px;
+  border: 2px solid ${MainColor};
+  border-radius: 5px;
+  background-color: ${BgColor};
+  font-weight: 700;
+  font-size: 34px;
+  color: ${MainColor};
+
+  &:active {
+    transform: translateY(4px);
+  }
 `;
 
 export default Register;

@@ -3,10 +3,12 @@ import { authLayoutRoutes, mainLayoutRoutes } from "./const";
 
 import { UserContext } from "../contexts/UserContext";
 import { useContext } from "react";
+import TopBar from "../components/TopBar/TopBar";
 
 const Routes = () => {
   const { isLoggedIn } = useContext(UserContext);
-  const { Layout, routes } = isLoggedIn ? mainLayoutRoutes : authLayoutRoutes;
+  // const { routes } = isLoggedIn ? mainLayoutRoutes : authLayoutRoutes;
+  const { routes } = mainLayoutRoutes;
 
   return (
     <RoutesWrapper>
@@ -15,18 +17,17 @@ const Routes = () => {
           key={path}
           path={path}
           element={
-            <Layout>
+            <div>
+              <TopBar />
               <Component />
-            </Layout>
+            </div>
           }
         />
       ))}
       <Route
         path="*"
         element={
-          <Layout>
             <Navigate to={{ pathname: "/" }} />
-          </Layout>
         }
       />
     </RoutesWrapper>

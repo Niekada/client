@@ -7,6 +7,14 @@ export const loginFormInitialValues = {
   password: "",
 };
 
+export const addQuestionInitialValues = {
+  answer: "Question"
+};
+
+export const addAnswerInitialValues = {
+  answer: "Answer"
+};
+
 export const loginValidationSchema = Yup.object().shape(
   {
     email: Yup.string().email(emailValidation).required(requiredField),
