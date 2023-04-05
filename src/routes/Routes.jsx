@@ -7,8 +7,8 @@ import TopBar from "../components/TopBar/TopBar";
 
 const Routes = () => {
   const { isLoggedIn } = useContext(UserContext);
-  // const { routes } = isLoggedIn ? mainLayoutRoutes : authLayoutRoutes;
-  const { routes } = mainLayoutRoutes;
+  const { routes } = isLoggedIn ? mainLayoutRoutes : authLayoutRoutes;
+  // const { routes } = mainLayoutRoutes;
 
   return (
     <RoutesWrapper>

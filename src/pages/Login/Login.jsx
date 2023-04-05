@@ -3,7 +3,7 @@ import { loginFormInitialValues, loginValidationSchema } from "../../consts/Init
 import { TextField } from "formik-mui";
 import { FormContainer, Title, AddButton } from "../../styles/LoginRegisterStyles";
 import axios from "axios";
-import { MainColor, BgColor } from "../../consts/Colors";
+import { MainColor, BgColor } from "../../assets/Colors";
 
 const Login = () => {
   const onSubmit = (values, { setSubmitting, resetForm }) => {

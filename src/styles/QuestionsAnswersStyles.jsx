@@ -1,4 +1,4 @@
-import { MainColor, BgColor } from '../consts/Colors';
+import { MainColor, BgColor } from '../assets/Colors';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -43,7 +43,7 @@ export const Inputs = styled.div`
     background-color: ${BgColor};
     color: ${MainColor};
     font-weight: 600;
-  }
+    }
 `;
 
 export const AddButton = styled.button`
@@ -59,7 +59,7 @@ export const AddButton = styled.button`
     font-size: 34px;
     color: ${MainColor};
     text-decoration: none;
-  }
+    }
 `;
 
 export const ButtonsContainer = styled.div`
@@ -81,5 +81,5 @@ export const SmallButtons = styled.button`
   a {
     color: ${MainColor};
     text-decoration: none
-  }
+    }
 `;

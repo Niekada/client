@@ -1,9 +1,8 @@
 import { Form, Formik } from "formik";
 import { addQuestionInitialValues } from "../../consts/InitialValues";
 import { TextField } from "formik-mui";
-import styled from "styled-components";
+import { MainContainer, Add, SecondaryContainer, StyledInput, AddButton } from "../../styles/AddQNAStyles";
 import axios from "axios";
-import { MainColor, BgColor } from "../../consts/Colors";
 
 const AddQuestion = () => {
   const onSubmit = (values, { setSubmitting, resetForm }) => {
@@ -23,15 +22,15 @@ const AddQuestion = () => {
 
   return (
     <div>
-      <Container>
-        <QuestionAdd>Add your question</QuestionAdd>
+      <MainContainer>
+        <Add>Add your question</Add>
         <Formik
           initialValues={addQuestionInitialValues}
           onSubmit={onSubmit}
         >
           {({ isSubmitting }) => (
             <Form>
-              <QuestionsContainer>
+              <SecondaryContainer>
                 <StyledInput
                   component={TextField}
                   name="question"
@@ -39,66 +38,19 @@ const AddQuestion = () => {
                   sx={{ mb: 2 }}
                   fullWidth
                 />
-              </QuestionsContainer>
-              <AddQuestionButton
+              </SecondaryContainer>
+              <AddButton
                 type="submit"
                 disabled={isSubmitting}           
               >
                 Add Question
-              </AddQuestionButton>
+              </AddButton>
             </Form>
           )}
         </Formik>
-      </Container>
+      </MainContainer>
     </div>
   )
 };
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-`;
-
-const QuestionAdd = styled.p`
-  font-weight: 700;
-  font-size: 34px;
-  color: ${MainColor};
-`;
-
-const QuestionsContainer = styled.div`
-  width: 100%;
-  border: 2px solid ${MainColor};
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const StyledInput = styled.input`
-  height: 200px; 
-  width: 500px;
-  background-color: ${BgColor};
-  color: ${MainColor};
-  font-weight: 600;
-`;
-
-const AddQuestionButton = styled.button`
-  margin-top: 24px;
-  text-align: center;
-  width: 250px;
-  height: 50px;
-  border: 2px solid ${MainColor};
-  border-radius: 5px;
-  background-color: ${BgColor};
-  font-weight: 700;
-  font-size: 34px;
-  color: ${MainColor};
-
-  &:active {
-    transform: translateY(4px);
-  }
-`;
 
 export default AddQuestion;

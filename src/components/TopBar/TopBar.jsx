@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { MainColor, BgColor } from "../../consts/Colors";
+import { ANSWERS_PATH, LOGIN_PATH, QUESTIONS_PATH, REGISTER_PATH } from "../../routes/const";
+import { Container, Title, NavigateContainer } from "../../styles/TopBarStyles";
 
 const TopBar = () => {
   return (
@@ -8,43 +8,13 @@ const TopBar = () => {
             <a href="/">Niekada Forum</a>
         </Title>
         <NavigateContainer>
-            <a href="/Login">Login</a>
-            <a href="/Register">Register</a>
-            <a href="/Questions">Questions</a>
-            <a href="/Answers">Answers</a>
+            <a href={LOGIN_PATH}>Login</a>
+            <a href={REGISTER_PATH}>Register</a>
+            <a href={QUESTIONS_PATH}>Questions</a>
+            <a href={ANSWERS_PATH}>Answers</a>
         </NavigateContainer>
     </Container>
   );
 };
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-`;
-
-const Title = styled.div`
-
-  a {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 34px;
-    color: ${MainColor};
-  }
-`;
-
-const NavigateContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-
-  a {
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 34px;
-    color: ${BgColor};
-}
-`;
 
 export default TopBar;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Title, Container, MainContainer, Loading, Inputs, AddButton, ButtonsContainer, SmallButtons } from "../../styles/QuestionsAnswersStyles";
 import { useNavigate } from "react-router-dom";
+import { ADD_QUESTION_PATH } from "../../routes/const";
 
 const Questions = () => {
   const navigate = useNavigate();
@@ -129,7 +130,7 @@ const Questions = () => {
         )};
       </MainContainer>
       <AddButton>
-        <a href="/addQuestion">Add Question</a>
+        <a href={ADD_QUESTION_PATH}>Add Question</a>
       </AddButton>
     </Container>
   );
